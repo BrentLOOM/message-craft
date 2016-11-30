@@ -32,9 +32,12 @@ body {
 
 /* Custom page footer */
 .footer {
+  /*position: fixed;*/
+  bottom: 0;
+  width: 100%;
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
+  /*border-top: 1px solid #e5e5e5;*/
 }
 
 .container-narrow > hr {
@@ -46,6 +49,7 @@ body {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
+
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
@@ -80,4 +84,116 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+	
+  .dropdown:hover .dropdown-menu {
+	display: block;
+  }
+}
+
+.navbar-brand {
+	font-size: 16px;
+    /*font-weight: bold;*/
+}
+
+.dropdown-menu .dropdown-header {
+    /*font-weight: bold;*/
+	/*font-variant: small-caps;*/
+}
+
+.thumbnail {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+}
+
+.caption p {
+	font-weight: bold;
+	color: white;
+	text-shadow: 1px 1px 5px #000;
+	font-size: 30px;
+	text-align: center;
+	font-variant: small-caps;
+}
+
+body {
+	padding-top: 65px;
+}
+
+.gallery-caption {
+	top: 15%;
+	
+}
+
+.gallery-caption-title {
+	font-style: italic;
+}
+
+.gallery-caption-title .gallery-caption-year {
+	font-size: 50%;
+}
+
+.gallery-caption .gallery-caption-aff {
+	font-size: 100%;
+}
+
+.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: none !important;
+  display: inline-block;
+
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+/*  	display: inline-block;*/
+	text-align: center;
+}
+
+.navbar .navbar-nav li a {
+	display: block;
+}
+
+.navbar .navbar-nav li{
+	width: 110px;
+}
+
+.navbar .navbar-nav > .active{
+	background: #000;
+}
+
+.navbar .navbar-nav li a i{
+	display: block;
+}
+
+.media-list .media-left a img {
+	height: 75px;
+}
+
+.media-list .media .media-body{
+	vertical-align: bottom;
+}
+
+.media-list .media .media-body .timestamp{
+	text-align: right;
 }

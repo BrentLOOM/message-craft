@@ -1,0 +1,16 @@
+<div class="container">
+	<ul class="media-list">
+		<li class="media" ng-repeat="post in notifications.notificationPosts">
+			<div class="media-left">
+				<a>
+					<img class="media-object img-circle" src="{{post.senderPicPath}}" alt="{{post.senderName}}">
+				</a>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading"><a>{{post.senderName}}</a> {{notifications.checkType(post.type)}}</h4>
+				<p class="timestamp">3 hours ago</p>
+			</div>
+			<hr>
+		</li>
+	</ul>
+</div>
