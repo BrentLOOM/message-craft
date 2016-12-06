@@ -95,8 +95,12 @@ angular
 	//$locationProvider.html5Mode(true);
 
   })
+
+.constant('_', window._)
+
 .run(['$rootScope', '$state', function($rootScope, $state) {
-	
+	$rootScope.thing = $state.current;
+	$rootScope._ = window._;
 
 }])
 ;

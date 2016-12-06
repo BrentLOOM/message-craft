@@ -35,7 +35,7 @@ angular.module('messageCraftApp')
 			case "unfollow":
 				return "has unfollowed you.";
 			case "tag":
-				return "has tagged you in a post!"
+				return "has tagged you in a post!";
 			default:
 				return "NO NOTIFICATION TYPE";
 		}	

@@ -1,0 +1,33 @@
+/* This is a sample of the obj I will be sending you
+   just convert each %s into a <select></select>
+   with an <option> element for each of the choices.
+   Make sure to make the "value" attribute equal to n+1 where n is the
+   current index in the array
+
+   For example:
+   <p>I am here to say that </p>
+   <select>
+       <option value="1">Mexicans</option>
+       <option value="2">America</option>
+    </select>
+    ...continue code
+
+*/
+{
+	"text": "I am here to say that %s is to blame for the terrible tragedy in %s",
+	"choices": [
+		"Mexicans",
+		"America"
+	]
+}
+
+/* In order to input the results into the processing algorithm,
+   please return a single array with the values of each choices
+
+
+   For example,
+   If the user chose "Mexicans" for the first blank and "America" for the second,
+   return the following array:
+*/
+
+[1,2]

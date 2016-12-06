@@ -197,3 +197,18 @@ body {
 .media-list .media .media-body .timestamp{
 	text-align: right;
 }
+
+.form-inline {
+	display: inline;
+	align-items: center;
+}
+
+.form-inline div select {
+	display: inline;
+	max-width: 150px;
+	float: none;
+}
+
+.form-inline div select option {
+	align-content: center;
+}
