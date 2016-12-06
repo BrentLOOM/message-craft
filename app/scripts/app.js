@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
 	'ui.router',
-	'ui.bootstrap'
+	'ui.bootstrap',
+	'angular-bind-html-compile'
   ])
 	
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -29,9 +30,9 @@ angular
 				templateUrl : 'views/header.html'
 			},
 			'content': {
-				templateUrl : 'views/main.html',
-				controller  : 'MainCtrl',
-				controllerAs: 'main'
+				templateUrl : 'views/timeline.html',
+				controller  : 'TimelineCtrl',
+				controllerAs: 'timeline'
 			},
 			'footer': {
 				templateUrl : 'views/footer.html',

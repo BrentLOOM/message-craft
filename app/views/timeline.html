@@ -3,12 +3,15 @@
 	
 	<!-- RESPONSE DIV -->
 	<div class="jumbotron form-group">
-		<form class="form-inline" >
-			<div ng-bind-html="responseFormHtml"></div>
-			<button class="btn btn-primary btn-xs" type="submit" role="button">Post</button>
+		<form class="form-inline" ng-submit="submit()">
+			<div bind-html-compile="responseFormHtml"></div>
+
+			<input class="btn btn-primary btn-xs" type="submit" role="button"></input>
 		</form>
 	</div>
 	
+	<button class="btn btn-danger" ng-href="#" ng-click="parseResponse(responses[1])">SWITCH</button>
+
 	<ul class="media-list">
 		<li class="media" ng-repeat="post in timeline.posts">
 			<div class="media-left">
