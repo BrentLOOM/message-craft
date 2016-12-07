@@ -99,13 +99,20 @@ angular
 
 .constant('_', window._)
 
-.run(['$rootScope', '$state', function($rootScope, $state) {
+.run(['$rootScope', '$state', '$document', function($rootScope, $state, $document) {
+	$rootScope.name = "";
 	$rootScope._ = window._;
+	
+	if($rootScope.name == ""){
+		$state.go('app');
+	}
 	
 	$rootScope.$on("$stateChangeSuccess", function(event, toState) {
     	$state.current = toState;
 		console.log($state.current);
   	});
+	
+	
 	
 
 }])

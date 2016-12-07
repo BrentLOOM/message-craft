@@ -8,20 +8,29 @@
  * Controller of the messageCraftApp
  */
 angular.module('messageCraftApp')
-  .controller('TimelineCtrl', function ($rootScope, $scope, $sce, postService, responseService) {
-	$scope.event = true;
-	$scope.blank = [];
+  .controller('TimelineCtrl', function ($rootScope, $scope, $sce, postService, responseService, $timeout) {
+	$scope.event = false;
+	$scope.choices = [];
 	$scope.responseFormHtml = "";
 	
 	$scope.posts = postService.getPosts();
 	$scope.currentResponse = responseService.getCurrentResponse();
 	
+	$timeout(function(){
+		$rootScope.$broadcast('eventEvent');
+	}, 10000);
+	
     
 	
 	
 	$scope.$on('eventEvent', function() {
-		$scope.event = true;
+		
+		if(confirm("Something has happened in the world! Will you respond?")){
+			$scope.event = true;
+		}
 	});
+	
+	
 	
 	
 	$scope.parseResponse = function(response) {
@@ -35,7 +44,7 @@ angular.module('messageCraftApp')
 		while(tempString.indexOf("%s") !== -1){
 			
 			
-			choicesHtmlStart = '<select compile ng-model=\"blank[' + count.toString() + ']\" class=\"form-control\">';
+			choicesHtmlStart = '<select compile ng-model=\"choices[' + count.toString() + ']\" class=\"form-control\">';
 			
 			for(var i = 0; i < response.choices.length; i++){
 				var choiceIndex = i;
@@ -49,7 +58,7 @@ angular.module('messageCraftApp')
 			start = tempString.indexOf("%s");
 			tempString = tempString.replace(/%s/, " " + choicesHtmlStart + " ");
 
-			$scope.blank[count] = "0";
+			$scope.choices[count] = "0";
 			count++;
 			
 		}
@@ -70,8 +79,25 @@ angular.module('messageCraftApp')
 	$scope.parseResponse($scope.currentResponse);	
 	
 	$scope.submit = function() {
-		console.log($scope.blank);
+		console.log($scope.choices);
 		$scope.event = false;
+		
+		var temp = $scope.currentResponse.text;
+		
+		for(var i = 0; i < $scope.currentResponse.choices.length; i++){
+			console.log($scope.currentResponse.choices[i]);
+			temp = temp.replace(/%s/, " " + $scope.currentResponse.choices[parseInt($scope.choices[i])] + " ");
+		}
+		
+		var tempPost = {
+			senderName: $rootScope.name,
+			senderPicPath: 'http://lorempixel.com/207/207/',
+			content: temp,
+			timestamp: '01/01/1999 00:00:00'
+		};
+		
+		$scope.posts.splice(0,0, tempPost);
+		
 	};
 	
 

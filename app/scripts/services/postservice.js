@@ -13,51 +13,33 @@ angular.module('messageCraftApp')
 	
 	this.posts = [
 		{
-			senderName: 'Bloop Blop',
+			senderName: 'Paul Itical',
 			senderPicPath: 'http://lorempixel.com/200/200/',
-			content: 'This is my first post!',
+			content: 'Welcome to MessageCraft!',
 			timestamp: '01/01/1999 00:00:00'
 		},
 		{
-			senderName: 'Bob Dylan',
-			senderPicPath: 'http://lorempixel.com/200/200/',
-			content: 'MessageCraft is cool!',
+			senderName: 'Ronald K. Drumpf',
+			senderPicPath: 'http://lorempixel.com/201/201/',
+			content: 'Where you will try to get as much free media as you possibly can! #MakeMessageCraftGreatAgain',
 			timestamp: '01/01/1999 00:00:00'
 		},
 		{
-			senderName: 'Bloop Blop',
-			senderPicPath: 'http://lorempixel.com/200/200/',
-			content: 'This is my first post!',
+			senderName: 'Elyk Ykcinuhob',
+			senderPicPath: 'http://lorempixel.com/202/202/',
+			content: 'Things will happen!',
 			timestamp: '01/01/1999 00:00:00'
 		},
 		{
-			senderName: 'Bob Dylan',
-			senderPicPath: 'http://lorempixel.com/200/200/',
-			content: 'MessageCraft is cool!',
-			timestamp: '01/01/1999 00:00:00'
-		},
-		{
-			senderName: 'Bloop Blop',
-			senderPicPath: 'http://lorempixel.com/200/200/',
-			content: 'This is my first post!',
-			timestamp: '01/01/1999 00:00:00'
-		},
-		{
-			senderName: 'Bob Dylan',
-			senderPicPath: 'http://lorempixel.com/200/200/',
-			content: 'MessageCraft is cool!',
+			senderName: 'Paul Itical',
+			senderPicPath: 'http://lorempixel.com/203/203/',
+			content: 'And how you respond is sure to get the attention of others.',
 			timestamp: '01/01/1999 00:00:00'
 		},
 		{
 			senderName: 'Bloop Blop',
-			senderPicPath: 'http://lorempixel.com/200/200/',
-			content: 'This is my first post!',
-			timestamp: '01/01/1999 00:00:00'
-		},
-		{
-			senderName: 'Bob Dylan',
-			senderPicPath: 'http://lorempixel.com/200/200/',
-			content: 'MessageCraft is cool!',
+			senderPicPath: 'http://lorempixel.com/204/204/',
+			content: 'Don\'t screw it up!',
 			timestamp: '01/01/1999 00:00:00'
 		}
 	];

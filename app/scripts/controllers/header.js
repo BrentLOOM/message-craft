@@ -8,12 +8,17 @@
  * Controller of the messageCraftApp
  */
 angular.module('messageCraftApp')
-  .controller('HeaderCtrl', function () {
+  .controller('HeaderCtrl', function ($rootScope, $scope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 	  
-	  
+	$scope.nameIsSet = false;
+	$scope.$on('nameIsSet', function(){
+		$scope.nameIsSet = true;
+		$scope.name = $rootScope.name;
+		console.log("Name is set to: ", $scope.name);
+	});
   });
