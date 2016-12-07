@@ -2,7 +2,11 @@
   "name": "messagecraft",
   "private": true,
   "devDependencies": {
+    "autoprefixer": "^6.4.0",
     "autoprefixer-core": "^5.2.1",
+    "bower": "^1.8.0",
+    "browserify": "^13.1.0",
+    "csslint": "^1.0.2",
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.7",
     "grunt-build-control": "^0.7.1",
@@ -28,22 +32,17 @@
     "grunt-wiredep": "^2.0.0",
     "jasmine-core": "^2.5.2",
     "jit-grunt": "^0.9.1",
-    "time-grunt": "^1.0.0",
-    "jshint-stylish": "^2.2.1",
-    "autoprefixer": "^6.4.0",
-    "browserify": "^13.1.0",
-    "csslint": "^1.0.2",
     "jshint": "^2.9.3",
-    "nodemon": "^1.10.2",
-    "phplint": "^1.7.1",
-    "postcss-cli": "^2.5.2",
-    "uglify-js": "^2.7.3",
     "jshint-stylish": "^1.0.0",
     "karma": "^1.3.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.2",
+    "nodemon": "^1.10.2",
     "phantomjs-prebuilt": "^2.1.12",
-    "time-grunt": "^1.0.0"
+    "phplint": "^1.7.1",
+    "postcss-cli": "^2.5.2",
+    "time-grunt": "^1.0.0",
+    "uglify-js": "^2.7.3"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -57,7 +56,7 @@
   },
   "scripts": {
     "test": "karma start test\\karma.conf.js",
-     "lint": "phplint './app/scripts/*.php'; jshint --reporter=node_modules/jshint-stylish --exclude=js/bb-code-styles.css ./app/scripts/build/*.js; exit 0",
+    "lint": "phplint './app/scripts/*.php'; jshint --reporter=node_modules/jshint-stylish --exclude=js/bb-code-styles.css ./app/scripts/build/*.js; exit 0",
     "prebuild": "npm run lint;",
     "build": "browserify ./app/scripts/build/main.js | uglifyjs > ./app/scripts/main.min.js"
   }
