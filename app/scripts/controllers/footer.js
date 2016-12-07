@@ -8,7 +8,7 @@
  * Controller of the messageCraftApp
  */
 angular.module('messageCraftApp')
-  .controller('FooterCtrl', function () {
+  .controller('FooterCtrl', function ($state, $rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

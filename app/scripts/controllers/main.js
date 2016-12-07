@@ -8,10 +8,20 @@
  * Controller of the messageCraftApp
  */
 angular.module('messageCraftApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($rootScope, $scope, $state) {
+    $rootScope.name = "";
+	$scope.name = "";
+	
+	//angular.element(document.querySelector('#myModalNorm')).modal('show');
+
+  	$scope.submit = function() {
+		$rootScope.name = $scope.name;
+		console.log($rootScope.name);
+		//angular.element(document.querySelector('#myModalNorm')).modal('dismiss');
+		$state.go('app.timeline');
+	};
+	
+
+	
+	
   });

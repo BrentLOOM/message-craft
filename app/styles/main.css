@@ -121,7 +121,8 @@ body {
 }
 
 body {
-	padding-top: 65px;
+	padding-top: 100px;
+	padding-bottom: 100px;
 }
 
 .gallery-caption {
@@ -211,4 +212,39 @@ body {
 
 .form-inline div select option {
 	align-content: center;
+}
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+	float:none;
+	font-variant-caps: small-caps;
+	font-size: 2em;
+}
+
+#myModalLabel {
+	text-align: center;
+}
+
+.modal-body form {
+	align-content: center;
+	text-align: center;
+}
+
+.modal-body form .form-group input {
+	align-content: center;
+	text-align: center;
+}
+
+.welcomeForm {
+	text-align: center;
+	
+}
+
+.welcomeForm .form-group input {
+	text-align: center;
 }

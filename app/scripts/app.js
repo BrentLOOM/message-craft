@@ -24,15 +24,15 @@ angular
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
 	.state('app', {
-		url:'/',
+		url:'',
 		views: {
 			'header': {
 				templateUrl : 'views/header.html'
 			},
 			'content': {
-				templateUrl : 'views/timeline.html',
-				controller  : 'TimelineCtrl',
-				controllerAs: 'timeline'
+				templateUrl : 'views/main.html',
+				controller  : 'MainCtrl',
+				controllerAs: 'main'
 			},
 			'footer': {
 				templateUrl : 'views/footer.html',
@@ -100,8 +100,13 @@ angular
 .constant('_', window._)
 
 .run(['$rootScope', '$state', function($rootScope, $state) {
-	$rootScope.thing = $state.current;
 	$rootScope._ = window._;
+	
+	$rootScope.$on("$stateChangeSuccess", function(event, toState) {
+    	$state.current = toState;
+		console.log($state.current);
+  	});
+	
 
 }])
 ;
