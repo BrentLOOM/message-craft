@@ -22,7 +22,7 @@ angular
 	'angular-bind-html-compile'
   ])
 	
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $sceProvider) {
     $stateProvider
 	.state('app', {
 		url:'',
@@ -114,6 +114,8 @@ angular
 	// Use the HTML 5 History API
 	//$locationProvider.html5Mode(true);
 
+
+	$sceProvider.enabled(false);
   })
 
 .constant('_', window._)

@@ -2,7 +2,7 @@ module.exports = {
 	chance: require('chance').Chance(),
 	shuffle: require('knuth-shuffle').knuthShuffle,
 
-	COMPETITORS_COUNT: 50,
+	COMPETITORS_COUNT: 5,
 	POINTS_PER_VIEW: 0.005, // according to research found here http://www.forbes.com/sites/alexknapp/2013/06/14/how-much-is-a-tweet-really-worth/#4e6957704cd6
 	MIN_POSTS_PER_SOURCE: 1,
 
@@ -88,10 +88,13 @@ module.exports = {
 				var postText = message.posts[s][p];
 				postText = this.processPost(postText, postees[p]);
 
+
+			
 				var post = {
-					"source": sources[s].name,
-					"avatar": sources[s].avatar,
-					"text": postText
+					"senderName": sources[s].name,
+					"senderPicPath": sources[s].avatar,
+					"content": postText,
+					"timestamp": '01/01/1999 00:00:00'
 				};
 				posts.push(post);
 			}

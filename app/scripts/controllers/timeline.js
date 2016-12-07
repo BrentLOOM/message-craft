@@ -24,12 +24,14 @@ angular.module('messageCraftApp')
 	
 	
 	$scope.$on('eventEvent', function() {
+		if(confirm("Something has happened in the world! Will you respond?")){
+			$scope.event = true;
+		}
 		messagecraft.getMsg(1, function(response){
+			alert(response.event);
 			$scope.currentResponse = response;
-			if(confirm("Something has happened in the world! Will you respond?")){
-				$scope.event = true;
-			}
-			$scope.parseResponse($scope.currentResponse);	
+			var htmlString = $scope.parseResponse(response);
+			$('div[bind-html-compile=responseFormHtml]').html(htmlString);
 		});
 	});
 	
@@ -66,30 +68,33 @@ angular.module('messageCraftApp')
 		}
 		
 		htmlString = htmlString.concat(tempString.substring(start, tempString.length));
-		console.log(htmlString);
+		htmlString = '<p>' + htmlString + '</p>';
+		// console.log(htmlString);
 
-		
-		
-		
-		
-		
-		$scope.responseFormHtml = $sce.trustAsHtml(htmlString);
-		
-		
+		return htmlString;
 	};
 	
 	
 	
 	$scope.submit = function() {
-		console.log($scope.choices);
+		// console.log($scope.choices);
 		$scope.event = false;
+
 		
 		var temp = $scope.currentResponse.text;
+		var choices = [];
 		
 		for(var i = 0; i < $scope.currentResponse.choices.length; i++){
-			console.log($scope.currentResponse.choices[i]);
-			temp = temp.replace(/%s/, " " + $scope.currentResponse.choices[parseInt($scope.choices[i])] + " ");
+			//start hack
+				choices.push(parseInt($('select[ng-model="choices['+i+']"]').val()));
+			// end hack
+			// console.log($scope.currentResponse.choices[i]);
+			temp = temp.replace(/%s/, " " + $scope.currentResponse.choices[choices[i]-1] + " ");
 		}
+
+		var posts = messagecraft.processMessage(choices);
+		console.log(messagecraft.player.points);
+		$rootScope.score = messagecraft.player.points;
 		
 		var tempPost = {
 			senderName: $rootScope.name,
@@ -99,7 +104,17 @@ angular.module('messageCraftApp')
 		};
 		
 		$scope.posts.splice(0,0, tempPost);
-		
+
+
+		var addPost = function(index){
+			return function(){
+				$scope.posts.splice(0,0, posts[index]);
+			}
+		}
+
+		for (var i = 0; i < posts.length; i++) {
+			$timeout(addPost(i), ( (i+1)*5000 ) );
+		};
 	};
 	
 

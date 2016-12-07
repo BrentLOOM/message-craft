@@ -19,6 +19,7 @@ angular.module('messageCraftApp')
 	$scope.$on('nameIsSet', function(){
 		$scope.nameIsSet = true;
 		$scope.name = $rootScope.name;
+		messagecraft.player.name = $scope.name;
 		console.log("Name is set to: ", $scope.name);
 	});
   });

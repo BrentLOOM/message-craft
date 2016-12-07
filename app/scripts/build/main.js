@@ -5,7 +5,7 @@ window.messagecraft = {
 	init: function(){
 		var self = this;
 		this.player = {
-			name: '@brizandrew',
+			name: '',
 			points: 0,
 			messages: []
 		};
@@ -37,6 +37,7 @@ window.messagecraft = {
 	},
 
 	getMsg: function(index, callback){
+		var self = this;
 		this.load.msg(index,function(response){
 			self.acitveMsg = JSON.parse(response);
 			var choices = [];
@@ -70,11 +71,7 @@ window.messagecraft = {
 			audience: this.audience
 		});
 
-		// display the posts on the page somehow or return this to another function
-		console.log(posts);
-
-		// display points found in this object under the property "points"
-		console.log(this.player);
+		return posts;
 	},
 
 	activateEvent: function(index){
