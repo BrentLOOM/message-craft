@@ -1,23 +1,57 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
+<header class="jumbotron">
+  <h1>Hello and Welcome!</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+	<img src="images/thumbnail.jpg" class="img-circle" alt="I'm Brent"><br><br>
+	I'm Brent and I make games!
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+</header>
 
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+    <p align=center>This site is a work in progress. Please come back when it's ready!</p>
+</div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<!-- Gallery view for all projects -->
+<div class="container-fluid">
+	<div class="row row-content">
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a ui-sref="app.stage" class="thumbnail">
+				<img class="img-responsive" src="images/stage/1.jpg" alt="Stage">
+				<div class="caption">
+					<p>Stage</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a ui-sref="app.pacific-armada" class="thumbnail">
+				<img class="img-responsive" src="images/pacific-armada/1.jpg" alt="Pacific Armada">
+				<div class="caption">
+					<p>Pacific Armada</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a ui-sref="pacific-armada-redux" class="thumbnail">
+				<img class="img-responsive" src="images/stage/3.jpg" alt="Stage">
+				<div class="caption">
+					<p>Pacific Armada Redux</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a ui-sref="app.models" class="thumbnail">
+				<img class="img-responsive" src="images/models/02_Sword.jpg" alt="Modeling">
+				<div class="caption">
+					<p>Modeling</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<a ui-sref="app.anim" class="thumbnail">
+				<div style='position:relative;padding-bottom:59%'><iframe src='https://gfycat.com/ifr/DecimalBoringIrishsetter' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
+				<div class="caption">
+					<p>Animation</p>
+				</div>
+			</a>
+		</div>
+	</div>
 </div>

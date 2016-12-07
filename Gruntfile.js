@@ -1,4 +1,4 @@
-// Generated on 2016-11-28 using generator-angular 0.15.1
+// Generated on 2016-09-21 using generator-angular 0.15.1
 'use strict';
 
 // # Globbing
@@ -25,6 +25,7 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -39,7 +40,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all', 'newer:jscs:all'],
+        tasks: ['newer:jshint:all'],//, 'newer:jscs:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -163,7 +164,8 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
+            '!<%= yeoman.dist %>/.git{,*/}*',
+            '!<%= yeoman.dist %>/CNAME{,*/}*'
           ]
         }]
       },
@@ -423,7 +425,9 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    }
+    },
+      
+    
   });
 
 

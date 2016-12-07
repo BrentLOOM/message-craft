@@ -1,0 +1,29 @@
+<div class="container">
+	
+	
+	<!-- RESPONSE DIV -->
+	<div class="jumbotron form-group">
+		<form class="form-inline" ng-submit="submit()">
+			<div bind-html-compile="responseFormHtml"></div>
+
+			<input class="btn btn-primary btn-xs" type="submit" role="button"></input>
+		</form>
+	</div>
+	
+	<button class="btn btn-danger" ng-href="#" ng-click="parseResponse(responses[1])">SWITCH</button>
+
+	<ul class="media-list">
+		<li class="media" ng-repeat="post in timeline.posts">
+			<div class="media-left">
+				<a>
+					<img class="media-object img-circle" src="{{post.senderPicPath}}" alt="{{post.senderName}}">
+				</a>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading"><a>{{post.senderName}}</a> {{post.content}}</h4>
+				<p class="timestamp">{{post.timestamp}}</p>
+			</div>
+			<hr>
+		</li>
+	</ul>
+</div>
