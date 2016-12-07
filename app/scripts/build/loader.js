@@ -19,12 +19,17 @@ module.exports = {
 	},
 
 	npc: function(callback){
-		var url = './loadNPCs.php';
+		var url = './scripts/loadNPCs.php';
+		this.get(url, callback);
+	},
+
+	words: function(callback){
+		var url = './scripts/loadWords.php';
 		this.get(url, callback);
 	},
 
 	msg: function(id, callback){
-		var url = './loadMsg.php?id=' + id;
+		var url = './scripts/loadMsg.php?id=' + id;
 		this.get(url, callback);
 	}
 };

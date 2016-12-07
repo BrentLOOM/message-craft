@@ -36,14 +36,14 @@ else{
 			mysqli_stmt_close($stmt);
 
 			# Get message choice values
-			$query = "SELECT msgPlace, choiceId, conservative, liberal, educational, emotional, accuracy, nonsense, nonnormative, conflicting FROM `message_choices_values` WHERE msgId = ? ORDER BY msgPlace";
+			$query = "SELECT msgPlace, text, conservative, liberal, educational, emotional, accuracy, nonsense, nonnormative, conflicting FROM `message_choices_values` JOIN `message_choices` ON `message_choices_values`.choiceId = `message_choices`.id WHERE msgId = ? ORDER BY msgPlace";
 			$stmt = mysqli_prepare($conn, $query);
 			mysqli_stmt_bind_param($stmt, "i", $msgId);
 			mysqli_stmt_execute($stmt);
-			mysqli_stmt_bind_result($stmt, $msgPlace, $choiceId, $conservative, $liberal, $educational, $emotional, $accuracy, $nonsense, $nonnormative, $conflicting);
+			mysqli_stmt_bind_result($stmt, $msgPlace, $text, $conservative, $liberal, $educational, $emotional, $accuracy, $nonsense, $nonnormative, $conflicting);
 			while(mysqli_stmt_fetch($stmt)){
 				$choice = array(
-					"choice" => $choiceId,
+					"text" => $text,
 					"ratings" => array(
 						"conservative" => $conservative,
 						"liberal" => $liberal,

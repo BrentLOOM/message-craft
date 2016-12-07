@@ -14,20 +14,23 @@ angular.module('messageCraftApp')
 	$scope.responseFormHtml = "";
 	
 	$scope.posts = postService.getPosts();
-	$scope.currentResponse = responseService.getCurrentResponse();
+	// $scope.currentResponse = responseService.getCurrentResponse();
 	
 	$timeout(function(){
 		$rootScope.$broadcast('eventEvent');
-	}, 10000);
+	}, 2000);
 	
     
 	
 	
 	$scope.$on('eventEvent', function() {
-		
-		if(confirm("Something has happened in the world! Will you respond?")){
-			$scope.event = true;
-		}
+		messagecraft.getMsg(1, function(response){
+			$scope.currentResponse = response;
+			if(confirm("Something has happened in the world! Will you respond?")){
+				$scope.event = true;
+			}
+			$scope.parseResponse($scope.currentResponse);	
+		});
 	});
 	
 	
@@ -47,8 +50,7 @@ angular.module('messageCraftApp')
 			choicesHtmlStart = '<select compile ng-model=\"choices[' + count.toString() + ']\" class=\"form-control\">';
 			
 			for(var i = 0; i < response.choices.length; i++){
-				var choiceIndex = i;
-				choicesHtmlStart = choicesHtmlStart.concat("<option value=\"" + choiceIndex.toString() + "\">" + response.choices[i] + "</option>");
+				choicesHtmlStart = choicesHtmlStart.concat("<option value=\"" + (i+1) + "\">" + response.choices[i] + "</option>");
 			}
 		
 			choicesHtmlStart = choicesHtmlStart.concat('</select>');
@@ -64,7 +66,7 @@ angular.module('messageCraftApp')
 		}
 		
 		htmlString = htmlString.concat(tempString.substring(start, tempString.length));
-		//console.log(htmlString);
+		console.log(htmlString);
 
 		
 		
@@ -76,7 +78,7 @@ angular.module('messageCraftApp')
 		
 	};
 	
-	$scope.parseResponse($scope.currentResponse);	
+	
 	
 	$scope.submit = function() {
 		console.log($scope.choices);

@@ -1,4 +1,4 @@
-var messagecraft = {
+window.messagecraft = {
 	ps: require('./processScore.js'),
 	load: require('./loader.js'),
 	
@@ -17,28 +17,39 @@ var messagecraft = {
 			// hide loading screen and display game here
 		});
 
+		this.load.words(function(response){
+			self.words = JSON.parse(response);
+		});
+
 		this.acitveMsg = null;
 
 
 		/* this is for dev purposes only, the first event should appear on some
 		 sort of user input */
-		this.activateEvent(1);
-		var choices = [1,2];
-		setTimeout(function(){
-			self.processMessage(choices);
-		},5000);
+
+		// this.activateEvent(1);
+		// var choices = [1,2];
+		// setTimeout(function(){
+		// 	self.processMessage(choices);
+		// },5000);
+
 		/* End Dev */
 	},
 
-	displayMessage: function(msg){
-		/* 
+	getMsg: function(index, callback){
+		this.load.msg(index,function(response){
+			self.acitveMsg = JSON.parse(response);
+			var choices = [];
+			for (var i = 0; i < self.acitveMsg.choices[0].length; i++) {
+				choices.push(self.acitveMsg.choices[0][i].text);
+			}
 
-		For Brent to fill in...
-		algorithmically generate the form here using the msg
-		parameter as the data object
-
-		*/
-
+			callback({
+				"event": self.acitveMsg.event,
+				"text": self.acitveMsg.text,
+				"choices": choices
+			});
+		});
 	},
 
 	processMessage: function(choices){

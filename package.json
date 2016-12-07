@@ -57,8 +57,9 @@
   },
   "scripts": {
     "test": "karma start test\\karma.conf.js",
-     "lint": "phplint './app/scripts/*.php'; jshint --reporter=node_modules/jshint-stylish --exclude=js/bb-code-styles.css ./app/scripts/build/*.js; exit 0",
+    "lint": "phplint './app/scripts/*.php'; jshint --reporter=node_modules/jshint-stylish --exclude=js/bb-code-styles.css ./app/scripts/build/*.js; exit 0",
     "prebuild": "npm run lint;",
-    "build": "browserify ./app/scripts/build/main.js | uglifyjs > ./app/scripts/main.min.js"
+    "build": "browserify ./app/scripts/build/main.js | uglifyjs > ./app/scripts/main.min.js",
+    "build-dev": "browserify ./app/scripts/build/main.js > ./app/scripts/main.min.js"
   }
 }
