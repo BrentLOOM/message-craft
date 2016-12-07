@@ -12,10 +12,10 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-	<link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/font-awesome.min.css">
-	
+  
     <!-- endbuild -->
   </head>
   <body ng-app="messageCraftApp">
@@ -24,11 +24,11 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-	  <div ui-view="header"></div>
-	  
-	  <div ui-view="content"></div>
-	  
-	  <footer ui-view="footer" class="footer"></footer>
+    <div ui-view="header"></div>
+    
+    <div ui-view="content"></div>
+    
+    <footer ui-view="footer" class="footer"></footer>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -37,7 +37,6 @@
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
        }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
@@ -56,22 +55,24 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-bind-html-compile/angular-bind-html-compile.js"></script>
-    <script src="bower_components/angular-ui-router/release/stateEvents.js"></script>
+    
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+      <script src="bower_components/angular-ui-router/release/stateEvents.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-	  	<script src="scripts/controllers/header.js"></script>
-	  	<script src="scripts/controllers/footer.js"></script>
+      <script src="scripts/controllers/header.js"></script>
+      <script src="scripts/controllers/footer.js"></script>
         <script src="scripts/controllers/timeline.js"></script>
         <script src="scripts/controllers/notifications.js"></script>
         <script src="scripts/controllers/messages.js"></script>
         <script src="scripts/controllers/profile.js"></script>
         <script src="scripts/services/postservice.js"></script>
         <script src="scripts/services/responseservice.js"></script>
-	  	<!-- <script src="scripts/main.min.js"></script> -->
+      <script src="scripts/main.min.js"></script>
+    
         <!-- endbuild -->
 </body>
 </html>
