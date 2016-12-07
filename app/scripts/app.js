@@ -33,12 +33,6 @@ angular
 				templateUrl : 'views/main.html',
 				controller  : 'MainCtrl',
 				controllerAs: 'main'
-			},
-			'footer': {
-				templateUrl : 'views/footer.html',
-				controller  : 'FooterCtrl',
-				controllerAs: 'footer'
-				
 			}
 		}
 	})
@@ -50,6 +44,12 @@ angular
 				templateUrl: 'views/timeline.html',
 				controller: 'TimelineCtrl',
 				controllerAs: 'timeline'
+			},
+			'footer@': {
+				templateUrl : 'views/footer.html',
+				controller  : 'FooterCtrl',
+				controllerAs: 'footer'
+				
 			}
 		}
 	})
