@@ -248,3 +248,12 @@ body {
 .welcomeForm .form-group input {
 	text-align: center;
 }
+
+.fade {
+    transition: all linear 300ms;
+    opacity: 1;
+}
+
+.fade.ng-hide {
+    opacity: 0;
+}

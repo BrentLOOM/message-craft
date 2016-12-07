@@ -17,6 +17,7 @@ angular
     'ngSanitize',
     'ngTouch',
 	'ui.router',
+	'ui.router.state.events',
 	'ui.bootstrap',
 	'angular-bind-html-compile'
   ])
@@ -61,6 +62,12 @@ angular
 				templateUrl: 'views/notifications.html',
 				controller: 'NotificationsCtrl',
 				controllerAs: 'notifications'
+			},
+			'footer@': {
+				templateUrl : 'views/footer.html',
+				controller  : 'FooterCtrl',
+				controllerAs: 'footer'
+				
 			}
 		}
 	})
@@ -72,6 +79,12 @@ angular
 				templateUrl: 'views/messages.html',
 				controller: 'MessagesCtrl',
 				controllerAs: 'messages'
+			},
+			'footer@': {
+				templateUrl : 'views/footer.html',
+				controller  : 'FooterCtrl',
+				controllerAs: 'footer'
+				
 			}
 		}
 	})
@@ -83,6 +96,12 @@ angular
 				templateUrl: 'views/profile.html',
 				controller: 'ProfileCtrl',
 				controllerAs: 'profile'
+			},
+			'footer@': {
+				templateUrl : 'views/footer.html',
+				controller  : 'FooterCtrl',
+				controllerAs: 'footer'
+				
 			}
 		}
 	})
@@ -99,17 +118,21 @@ angular
 
 .constant('_', window._)
 
-.run(['$rootScope', '$state', '$document', function($rootScope, $state, $document) {
+.run(['$rootScope', '$state', '$document', function($rootScope, $state, $document, $scope) {
 	$rootScope.name = "";
 	$rootScope._ = window._;
+	$rootScope.score = 0;
+	$rootScope.currentState = {};
+	$rootScope.currentState.name = "app";
 	
 	if($rootScope.name == ""){
 		$state.go('app');
 	}
 	
+	
 	$rootScope.$on("$stateChangeSuccess", function(event, toState) {
-    	$state.current = toState;
-		console.log($state.current);
+    	$rootScope.currentState = toState;
+		//console.log($rootScope.currentState);
   	});
 	
 	

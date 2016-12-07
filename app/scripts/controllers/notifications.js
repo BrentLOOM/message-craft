@@ -19,7 +19,7 @@ angular.module('messageCraftApp')
 		{
 			senderName: "Bob Dylan",
 			senderHandle: "bobdylan88",
-			senderPicPath: "images/thumbnail.jpg",
+			senderPicPath: "http://lorempixel.com/202/202/",
 			type: "like",
 			time: "00:00:00",
 			date: "01/01/1999"

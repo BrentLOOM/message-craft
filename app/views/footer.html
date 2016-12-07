@@ -14,17 +14,17 @@
 		<div class="collapse navbar-collapse" id="js-navbar-collapse">
 
 		 	<ul class="nav navbar-nav">
-				<li>
-					<a ui-sref="app.timeline"><i class="fa fa-bars"></i> Timeline</a>
+				<li ng-class="{active: isActive('app.timeline')}">
+					<a ui-sref="app.timeline" ><i class="fa fa-bars"></i> Timeline</a>
 				</li>	
-				<li>
-					<a ui-sref="app.notifications"><i class="fa fa-exclamation"></i> Notifications</a>
+				<li ng-class="{active: isActive('app.notifications')}">
+					<a ui-sref="app.notifications" ><i class="fa fa-exclamation"></i> Notifications</a>
 				</li>	
 				<!--<li>
 					<a ui-sref="app.messages"><i class="fa fa-envelope-open"></i> Messages</a>
 				</li>-->	
-				<li>
-					<a ui-sref="app.profile" ng-disabled="true"><i class="fa fa-user"></i> Profile</a>
+				<li ng-class="{active: isActive('app.profile')}">
+					<a ui-sref="app.profile" ><i class="fa fa-user"></i> Profile</a>
 				</li>	
 			</ul>
 				
