@@ -1,6 +1,12 @@
 {
   "name": "messagecraft",
   "private": true,
+  "scripts": {
+    "test": "echo test",
+    "lint": "phplint './app/scripts/*.php'; jshint --reporter=node_modules/jshint-stylish --exclude=js/bb-code-styles.css ./app/scripts/build/*.js; exit 0",
+    "prebuild": "npm run lint;",
+    "build": "browserify ./app/scripts/build/main.js | uglifyjs > ./app/scripts/main.min.js"
+  },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
@@ -27,9 +33,24 @@
     "grunt-wiredep": "^2.0.0",
     "jit-grunt": "^0.9.1",
     "time-grunt": "^1.0.0",
-    "jshint-stylish": "^1.0.0"
+    "jshint-stylish": "^2.2.1",
+    "autoprefixer": "^6.4.0",
+    "browserify": "^13.1.0",
+    "csslint": "^1.0.2",
+    "jshint": "^2.9.3",
+    "nodemon": "^1.10.2",
+    "phplint": "^1.7.1",
+    "postcss-cli": "^2.5.2",
+    "uglify-js": "^2.7.3"
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "jshintConfig": {
+    "strict": false
+  },
+  "dependencies": {
+    "chance": "^1.0.4",
+    "knuth-shuffle": "^1.0.1"
   }
 }
