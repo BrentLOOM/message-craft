@@ -341,7 +341,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           module: 'messageCraftApp',
-          htmlmin: '<%= htmlmin.dist.options %>',
+          //htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
         cwd: '<%= yeoman.app %>',
