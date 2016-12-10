@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/font-awesome.min.css">
   
     <!-- endbuild -->
+	  <base href="/">
   </head>
   <body ng-app="messageCraftApp">
     <!--[if lte IE 8]>
@@ -55,11 +56,13 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-bind-html-compile/angular-bind-html-compile.js"></script>
+    <script src="bower_components/chance/chance.js"></script>
+    <script src="bower_components/knuth-shuffle/index.js"></script>
     <!-- endbower -->
+	<script src="bower_components/angular-ui-router/release/stateEvents.js"></script>
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-      <script src="bower_components/angular-ui-router/release/stateEvents.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
       <script src="scripts/controllers/header.js"></script>
@@ -69,9 +72,11 @@
         <script src="scripts/controllers/messages.js"></script>
         <script src="scripts/controllers/profile.js"></script>
         <script src="scripts/services/postservice.js"></script>
-        <script src="scripts/services/responseservice.js"></script>
-      <script src="scripts/main.min.js"></script>
-    
+        <script src="scripts/services/responseservice.js"></script>    
+        <script src="scripts/services/messagecraftservice.js"></script>
+        <script src="scripts/services/dataservice.js"></script>
+        <script src="scripts/services/scoreservice.js"></script>
+        <script src="scripts/services/processservice.js"></script>
         <!-- endbuild -->
 </body>
 </html>

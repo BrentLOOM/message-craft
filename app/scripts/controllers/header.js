@@ -8,7 +8,7 @@
  * Controller of the messageCraftApp
  */
 angular.module('messageCraftApp')
-  .controller('HeaderCtrl', function ($rootScope, $scope) {
+  .controller('HeaderCtrl', function ($rootScope, $scope, messageCraftService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -19,7 +19,7 @@ angular.module('messageCraftApp')
 	$scope.$on('nameIsSet', function(){
 		$scope.nameIsSet = true;
 		$scope.name = $rootScope.name;
-		messagecraft.player.name = $scope.name;
+		messageCraftService.player.name = $scope.name;
 		console.log("Name is set to: ", $scope.name);
 	});
   });

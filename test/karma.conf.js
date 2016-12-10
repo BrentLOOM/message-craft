@@ -32,6 +32,8 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-bind-html-compile/angular-bind-html-compile.js',
+      'bower_components/chance/chance.js',
+      'bower_components/knuth-shuffle/index.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

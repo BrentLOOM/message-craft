@@ -22,7 +22,7 @@ angular
 	'angular-bind-html-compile'
   ])
 	
-  .config(function ($stateProvider, $urlRouterProvider, $sceProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $sceProvider, $locationProvider) {
     $stateProvider
 	.state('app', {
 		url:'',
@@ -112,7 +112,7 @@ angular
 	$urlRouterProvider.otherwise('timeline');
 	
 	// Use the HTML 5 History API
-	//$locationProvider.html5Mode(true);
+	$locationProvider.html5Mode(true);
 
 
 	$sceProvider.enabled(false);
@@ -120,14 +120,14 @@ angular
 
 .constant('_', window._)
 
-.run(['$rootScope', '$state', '$document', function($rootScope, $state, $document, $scope) {
+.run(['$rootScope', '$state', function($rootScope, $state) {
 	$rootScope.name = "";
 	$rootScope._ = window._;
 	$rootScope.score = 0;
 	$rootScope.currentState = {};
 	$rootScope.currentState.name = "app";
 	
-	if($rootScope.name == ""){
+	if($rootScope.name === ""){
 		$state.go('app');
 	}
 	

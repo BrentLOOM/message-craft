@@ -8,7 +8,7 @@
  * Controller of the messageCraftApp
  */
 angular.module('messageCraftApp')
-  .controller('TimelineCtrl', function ($rootScope, $scope, $sce, postService, responseService, $timeout) {
+  .controller('TimelineCtrl', function ($rootScope, $scope, $sce, postService, responseService, $timeout, messageCraftService) {
 	$scope.event = false;
 	$scope.choices = [];
 	$scope.responseFormHtml = "";
@@ -24,15 +24,20 @@ angular.module('messageCraftApp')
 	
 	
 	$scope.$on('eventEvent', function() {
-		if(confirm("Something has happened in the world! Will you respond?")){
-			$scope.event = true;
-		}
-		messagecraft.getMsg(1, function(response){
-			alert(response.event);
-			$scope.currentResponse = response;
+		
+		
+		$scope.currentResponse = messageCraftService.getMsg(1).then(function(response){
+			if(confirm(response.event)){
+				$scope.event = true;
+			}
+
+			//alert(response.event);
 			var htmlString = $scope.parseResponse(response);
 			$('div[bind-html-compile=responseFormHtml]').html(htmlString);
+			return response;
 		});
+		
+		
 	});
 	
 	
@@ -92,9 +97,9 @@ angular.module('messageCraftApp')
 			temp = temp.replace(/%s/, " " + $scope.currentResponse.choices[choices[i]-1] + " ");
 		}
 
-		var posts = messagecraft.processMessage(choices);
-		console.log(messagecraft.player.points);
-		$rootScope.score = messagecraft.player.points;
+		var posts = messageCraftService.processMessage(choices);
+		console.log(messageCraftService.player.points);
+		$rootScope.score = messageCraftService.player.points;
 		
 		var tempPost = {
 			senderName: $rootScope.name,
@@ -109,12 +114,12 @@ angular.module('messageCraftApp')
 		var addPost = function(index){
 			return function(){
 				$scope.posts.splice(0,0, posts[index]);
-			}
-		}
-
-		for (var i = 0; i < posts.length; i++) {
-			$timeout(addPost(i), ( (i+1)*5000 ) );
+			};
 		};
+
+		for (var s = 0; i < posts.length; s++) {
+			$timeout(addPost(i), ( (s+1)*5000 ) );
+		}
 	};
 	
 
