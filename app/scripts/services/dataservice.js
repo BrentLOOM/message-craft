@@ -12,27 +12,29 @@ angular.module('messageCraftApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
 	
 	this.npc = function() {
-		$http.get('scripts/loadNPCs.php').then(function(response) {
-			return response.data;
-		});
+		return $http.get('scripts/loadNPCs.php')
+			.then(function(response) {
+				return response.data;
+			});
 	};
 	
 	this.words = function() {
-		$http.get('scripts/loadWords.php').then(function(response) {
-			return response.data;
-		});
+		return $http.get('scripts/loadWords.php')
+			.then(function(response) {
+				return response.data;
+			});
 	};
 	
 	this.msg = function(id) {
-
-		var promise = $http.get('scripts/loadMsg.php?id=' + id).then(function(response) {
-			return response.data;
+		return $http.get('scripts/loadMsg.php?id=' + id)
+			.then(function(response) {
+				return {
+					options: response.data.choices,
+					event: response.data.event,
+					text: response.data.text
+				};
 			
-		});
-		
-		console.log(promise);
-		return promise;
-
+			});
 	};
 
 	

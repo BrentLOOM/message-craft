@@ -8,7 +8,7 @@
  * Service in the messageCraftApp.
  */
 angular.module('messageCraftApp')
-  .service('messageCraftService', function ($rootScope, $window, dataService) {
+  .service('messageCraftService', function ($rootScope, $window, dataService, processService) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 	
 	this.player = {
@@ -17,15 +17,32 @@ angular.module('messageCraftApp')
 		messages: []
 	};
 
-	this.audience = 1000000;
-
-	this.npc = dataService.npc();
-
-	this.words = dataService.words();
-
-
-
 	this.activeMsg = null;
+	
+	this.audience = 1000000;
+	this.npcs = null;
+	this.words = null;
+	
+	this.getNPCs = function(){
+		dataService.npc().then(function(npcData){
+			this.npcs = npcData;
+		});
+	};
+	
+	this.getWords = function(){
+		dataService.words().then(function(wordData){
+			this.words = wordData;
+		});
+	};
+	
+	
+	
+	
+	
+
+
+
+	
 
 
 	/* this is for dev purposes only, the first event should appear on some
@@ -39,32 +56,26 @@ angular.module('messageCraftApp')
 
 	/* End Dev */
 	
-	this.getMsg = function(index){
-		//var choices = [];
-		var temp = {};
+	
+	this.getMsgData = function(index){
 		
-		return dataService.msg(index).then(function(response) {
-			console.log(response);
-			temp.choices = [];
-			temp.event = response.event;
-			temp.text = response.text;
+		dataService.msg(index).then(function(msgData) {
+			this.activeMsg = msgData;
+			this.activeMsg.options = [];
 			
-			console.log(temp);
-		
-			
-			for (var i = 0; i < response.choices[0].length; i++) {
-				temp.choices.push(response.choices[0][i].text);
+						
+			for (var i = 0; i < msgData.options[0].length; i++) {
+				// I need to remove .text
+				this.activeMsg.options.push(msgData.options[0][i].text);
 			}
-			 
-			console.log({
-				"event": temp.event,
-				"text": temp.text,
-				"choices": temp.choices
-			});
-			
-			return temp;
+			console.log("Active Message: ", this.activeMsg);
 		});
 		
+	};
+	
+	this.getMsg = function(index){
+		this.getMsgData(index);
+		return this.activeMsg;
 	};
 	
 	this.processMessage = function(choices){
@@ -78,24 +89,35 @@ angular.module('messageCraftApp')
 		*/
 		
 		//Refactor
-		var posts = this.ps.process({
+		var temp = {
 			message: this.activeMsg,
 			player: this.player,
-			choices: choices,
-			sources: this.npcs,
-			audience: this.audience
-		});
+			audience: this.audience,
+			choices: choices
+		};
+		
+		console.log("MESSAGE", temp.message);
+		
+		temp.sources = this.npcs;
 
-		return posts;
+		return processService.process(temp);		
+
+
+
 	};
 	
 	this.activateEvent = function(index){
+		console.log(index);
+		/*dataService.msg(index).then(function(response){
+			console.log("Active Msg response: ", msg);
+			this.activeMsg = msg;
+			this.displayMessage(msg);
+		});*/
 		
-		
-		var msg = dataService.msg(index);
-		this.activeMsg = msg;
-		this.displayMessage(msg);
 	};
+	
+	this.getNPCs();
+	this.getWords();
 	
 	
   });
